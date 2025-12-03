@@ -29,20 +29,16 @@ navLinks.querySelectorAll('a').forEach(link => {
 const contactForm = document.getElementById('contact-form-id');
 const messageDiv = document.getElementById('form-message');
 
-if (contactForm && messageDiv) {
-    contactForm.addEventListener('submit', function (event) {
-        event.preventDefault(); // Prevent refresh
 
-        const nameInput = document.getElementById('name').value.trim();
-        const emailInput = document.getElementById('email').value.trim();
+if (contactForm) {
+  contactForm.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission and page refresh
 
-        if (nameInput === '' || emailInput === '') {
-            messageDiv.textContent = 'Please fill out all required fields.';
-            messageDiv.style.color = 'red';
-        } else {
-            messageDiv.textContent = 'Thank you for your message! I will be in touch shortly.';
-            messageDiv.style.color = 'green';
-            contactForm.reset();
-        }
-    });
+    // Show simple message
+    alert('Message delivered! Thank you for contacting me.');
+
+    // Optionally, reset form fields
+    contactForm.reset();
+  });
 }
+
